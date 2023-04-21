@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dtos-dados_que_user_inform/createUser.dto';
 import { User } from './user.interface';
 import { hash } from 'bcrypt';
+import { promises } from 'dns';
 
 @Injectable()
 
@@ -20,4 +21,8 @@ export class UserService {
         return user;
         
     }
+    async getAllUser(): Promise<User[]>{
+        return this.users;
+    }
+    
 }
